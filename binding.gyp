@@ -6,7 +6,7 @@
   },
   "targets": [
     {
-      "target_name": "<(module_name)",
+      "target_name": "node_sqlite3",
       "include_dirs": ["<!(node -e \"require('nan')\")"],
       "conditions": [
         ["sqlite != 'internal'", {
@@ -31,23 +31,11 @@
         }
         ]
       ],
-      "cflags": [ "-include ../src/gcc-preinclude.h" ],
       "sources": [
         "src/database.cc",
         "src/node_sqlite3.cc",
         "src/statement.cc"
       ]
     },
-    {
-      "target_name": "action_after_build",
-      "type": "none",
-      "dependencies": [ "<(module_name)" ],
-      "copies": [
-          {
-            "files": [ "<(PRODUCT_DIR)/<(module_name).node" ],
-            "destination": "<(module_path)"
-          }
-      ]
-    }
   ]
 }

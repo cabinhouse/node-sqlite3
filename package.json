@@ -7,13 +7,6 @@
     "name": "MapBox",
     "url": "https://mapbox.com/"
   },
-  "binary": {
-    "module_name": "node_sqlite3",
-    "module_path": "./lib/binding/{node_abi}-{platform}-{arch}",
-    "host": "https://mapbox-node-binary.s3.amazonaws.com",
-    "remote_path": "./{name}/v{version}/{toolset}/",
-    "package_name": "{node_abi}-{platform}-{arch}.tar.gz"
-  },
   "contributors": [
     "Konstantin Käfer <mail@kkaefer.com>",
     "Dane Springmeyer <dane@mapbox.com>",
@@ -37,12 +30,8 @@
     "url": "git://github.com/mapbox/node-sqlite3.git"
   },
   "dependencies": {
-    "nan": "~2.4.0",
-    "node-pre-gyp": "~0.6.32"
+    "nan": "~2.4.0"
   },
-  "bundledDependencies": [		
-      "node-pre-gyp"		
-  ],
   "devDependencies": {
     "aws-sdk": "2.x",
     "eslint": "3.5.0",
@@ -50,7 +39,6 @@
   },
   "scripts": {
     "prepublish": "npm ls",
-    "install": "node-pre-gyp install --fallback-to-build",
     "pretest": "node test/support/createdb.js",
     "test": "mocha -R spec --timeout 480000"
   },
